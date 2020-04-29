@@ -3,7 +3,7 @@ import UIKit
 import CoreML
 import Accelerate
 
-let anchors: [Float] = [1.08, 1.19, 3.42, 4.41, 6.63, 11.38, 9.42, 5.11, 16.62, 10.52]
+let anchors: [Float] = [9.0,16.0,  21.0,39.0,  36.0,55.0,  44.0,91.0,  77.0,135.0,  111.0,144.0,  120.0,220.0,  184.0,282.0,  243.0,372.0]
 
 /*
   The tiny-yolo-voc network from YOLOv2. https://pjreddie.com/darknet/yolo/
