@@ -3,13 +3,12 @@ import UIKit
 import CoreML
 
 class YOLO {
-  // YOLO2 input is 608x608
   public static let inputWidth = 608
   public static let inputHeight = 608
   public static let maxBoundingBoxes = 10
 
-  // Tweak these values to get more or fewer predictions.
-  let confidenceThreshold: Float = 0.5
+
+  let confidenceThreshold: Float = 0.15
   let iouThreshold: Float = 0.6
 
   struct Prediction {
@@ -32,15 +31,15 @@ class YOLO {
 
   public func computeBoundingBoxes(features: MLMultiArray) -> [Prediction] {
 //    assert(features.count == 125*13*13)
-    assert(features.count == 425*19*19)
+    assert(features.count == 135*19*19)
 
     var predictions = [Prediction]()
 
     let blockSize: Float = 32
     let gridHeight = 19
     let gridWidth = 19
-    let boxesPerCell = 5;//Int(anchors.count/5)
-    let numClasses = 80
+    let boxesPerCell = 9;//Int(anchors.count/5)
+    let numClasses = 10
 
     // The 608x608 image is divided into a 19x19 grid. Each of these grid cells
     // will predict 5 bounding boxes (boxesPerCell). A bounding box consists of
